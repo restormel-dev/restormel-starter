@@ -1,36 +1,25 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+/**
+ * Restormel ESLint flat config.
+ * Uses Next.js flat config directly (no FlatCompat) to avoid circular ref in config validator.
+ */
+import { createRequire } from "node:module";
 import security from "eslint-plugin-security";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+const require = createRequire(import.meta.url);
+const nextConfig = require("eslint-config-next/core-web-vitals");
 
 const eslintConfig = [
-  // 1. Next.js Configs (Keep these managed by compat)
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-
-  // 2. Restormel Security Config (Manually Constructed)
-  // We extract ONLY the rules to avoid the "Circular JSON" crash
+  ...nextConfig,
   {
     plugins: {
       security,
     },
     rules: {
-      // Spread the recommended rules directly
       ...security.configs.recommended.rules,
-      
-      // Optional: Add custom overrides here if needed
-      "security/detect-object-injection": "warn", // Often too noisy, setting to warn
+      "security/detect-object-injection": "warn",
     },
   },
-
-  // 3. Prettier last: disables ESLint formatting rules that conflict with Prettier
   eslintConfigPrettier,
 ];
 

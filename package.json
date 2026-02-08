@@ -1,7 +1,13 @@
 {
   "name": "restormel-nextjs-starter",
   "description": "A Bank-Grade Secure Next.js 14 Starter Kit featuring Zod, Husky, Dependency Cruiser, and Restormel Architecture.",
-  "keywords": ["security", "nextjs", "zod", "typescript", "eslint"],
+  "keywords": [
+    "security",
+    "nextjs",
+    "zod",
+    "typescript",
+    "eslint"
+  ],
   "license": "MIT",
   "version": "0.1.0",
   "private": true,
@@ -9,14 +15,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && echo \"✅ Restormel Code Quality Check Passed\"",
+    "lint": "eslint . --max-warnings 0 && echo \"✅ Restormel Code Quality Check Passed\"",
     "prepare": "husky",
     "audit": "tsx scripts/audit.ts",
     "test": "vitest run"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,json,md}": ["prettier --write"],
-    "*.{ts,tsx,js,jsx}": ["eslint --fix"]
+    "*.{ts,tsx,js,jsx,json,md}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix"
+    ]
   },
   "overrides": {
     "glob": "^10.4.0"
@@ -32,7 +42,6 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.0.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
