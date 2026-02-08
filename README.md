@@ -1,6 +1,6 @@
-# Restormel — Bank-Grade Secure Next.js Starter
+# Restormel — Next.js starter template
 
-A **Next.js** starter kit (App Router) built for security-first development. Clone, install, and start building with four layers of defense, Zod validation, and clear architecture so you ship with confidence.
+**Restormel** is a secure **Next.js** starter and template: Vitest, ESLint, pre-commit hooks, and security audit out of the box. Use it with `create-next-app -e <this-repo>` or the [Restormel CLI](https://github.com/restormel-dev/restormel-cli) to scaffold new projects or inject rules into existing ones.
 
 This repo is the **official Restormel starter template** and is used by the Restormel CLI in two ways:
 
@@ -104,6 +104,24 @@ These patterns are codified in **`.cursorrules`** so both humans and AI stay con
 
 ---
 
+## See also
+
+- **[Restormel CLI](https://github.com/restormel-dev/restormel-cli)** — Scaffold new Next.js projects from this template (greenfield) or inject Restormel security and architecture rules into an existing codebase (brownfield).
+
+---
+
 ## License
 
 MIT. See [LICENSE](./LICENSE) for details.
+
+---
+
+<details>
+<summary>GitHub repo settings (for maintainers)</summary>
+
+Set on the repository (Settings or About):
+
+- **Description:** Starter template for Restormel — secure Next.js app with Vitest, ESLint, pre-commit. Use with create-next-app -e or restormel CLI.
+- **Topics:** `restormel`, `nextjs`, `next.js`, `starter`, `template`, `security`, `vitest`, `eslint`, `create-next-app`
+
+</details>

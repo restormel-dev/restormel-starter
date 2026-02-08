@@ -1,13 +1,21 @@
 {
   "name": "restormel-nextjs-starter",
-  "description": "A Bank-Grade Secure Next.js 14 Starter Kit featuring Zod, Husky, Dependency Cruiser, and Restormel Architecture.",
+  "description": "Restormel starter — secure Next.js app with Vitest, ESLint, pre-commit. Use with create-next-app -e or restormel CLI.",
   "keywords": [
-    "security",
+    "restormel",
+    "next.js",
     "nextjs",
+    "starter",
+    "template",
+    "security",
+    "vitest",
+    "eslint",
+    "create-next-app",
     "zod",
-    "typescript",
-    "eslint"
+    "typescript"
   ],
+  "homepage": "https://github.com/restormel-dev/restormel-starter#readme",
+  "bugs": "https://github.com/restormel-dev/restormel-starter/issues",
   "license": "MIT",
   "author": "Allotment Technology Ltd",
   "version": "0.1.0",
