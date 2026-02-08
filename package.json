@@ -12,11 +12,14 @@
     "lint": "next lint && echo \"✅ Restormel Code Quality Check Passed\"",
     "prepare": "husky",
     "audit": "tsx scripts/audit.ts",
-    "test": "jest"
+    "test": "vitest run"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json,md}": ["prettier --write"],
     "*.{ts,tsx,js,jsx}": ["eslint --fix"]
+  },
+  "overrides": {
+    "glob": "^10.4.0"
   },
   "dependencies": {
     "@supabase/ssr": "^0.8.0",
@@ -44,11 +47,9 @@
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.2.5",
-    "@types/jest": "^29.5.14",
     "eslint-config-prettier": "^10.0.0",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.4.0"
+    "prettier": "^3.4.0",
+    "vitest": "^4.0.0"
   }
 }

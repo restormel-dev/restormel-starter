@@ -42,6 +42,7 @@ Open [http://localhost:3000](http://localhost:3000). You’re ready to build.
 - **Lint:** `npm run lint`
 - **Build:** `npm run build`
 - **Start (production):** `npm run start`
+- **Test:** `npm run test` (Vitest)
 
 ---
 
@@ -97,7 +98,8 @@ These patterns are codified in **`.cursorrules`** so both humans and AI stay con
 - **Runtime & framework:** Next.js 14 (App Router), React 19, TypeScript  
 - **Validation:** Zod  
 - **Styling:** Tailwind CSS  
-- **Quality & security:** ESLint, eslint-plugin-security, Dependency Cruiser, Husky  
+- **Quality & security:** ESLint, eslint-plugin-security, Dependency Cruiser, Husky, Vitest
+- **Dependency security:** Vitest 4+ is used (instead of Jest) to avoid deprecated/vulnerable transitive deps (e.g. `glob@7`, `inflight`) and to satisfy the esbuild/vite dev-server advisory (GHSA-67mh-4wv8-2f99). An `overrides` entry for `glob` ensures any remaining dependents resolve to a secure version.  
 - **Database (example setup):** Postgres (e.g. via Drizzle/Prisma); adapt to your stack  
 
 ---

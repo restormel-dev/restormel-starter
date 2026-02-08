@@ -3,17 +3,18 @@
  * Mocks @/lib/auth and @/lib/db — no real database.
  */
 import { createHash } from 'node:crypto';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { changePassword } from './changePassword';
 
-const mockAuth = jest.fn();
-const mockUserFindUnique = jest.fn();
-const mockUserUpdate = jest.fn();
+const mockAuth = vi.fn();
+const mockUserFindUnique = vi.fn();
+const mockUserUpdate = vi.fn();
 
-jest.mock('@/lib/auth', () => ({
+vi.mock('@/lib/auth', () => ({
   auth: (...args: unknown[]) => mockAuth(...args),
 }));
 
-jest.mock('@/lib/db', () => ({
+vi.mock('@/lib/db', () => ({
   db: {
     user: {
       findUnique: (...args: unknown[]) => mockUserFindUnique(...args),
@@ -38,7 +39,7 @@ function formData(overrides: Record<string, string> = {}): FormData {
 }
 
 beforeEach(() => {
-  jest.clearAllMocks();
+  vi.clearAllMocks();
 });
 
 describe('changePassword', () => {
@@ -135,7 +136,7 @@ describe('changePassword', () => {
 
   describe('Error Leaking', () => {
     it('returns a generic error message and NOT the raw error when DB throws', async () => {
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       try {
         mockAuth.mockResolvedValue({ id: 'user-1' });
         mockUserFindUnique.mockResolvedValue({
