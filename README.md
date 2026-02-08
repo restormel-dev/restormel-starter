@@ -1,12 +1,12 @@
 # Restormel — Bank-Grade Secure Next.js Starter
 
-A **Next.js 14** starter kit built for security-first development. Clone, install, and start building with four layers of defense, Zod validation, and clear architecture so you ship with confidence.
+A **Next.js** starter kit (App Router) built for security-first development. Clone, install, and start building with four layers of defense, Zod validation, and clear architecture so you ship with confidence.
 
 This repo is the **official Restormel starter template** and is used by the Restormel CLI in two ways:
 
-| Mode | What the CLI does |
-|------|-------------------|
-| **Greenfield** | Runs `npx create-next-app@latest -e https://github.com/adamboon1984-arch/restormel-starter PROJECT_NAME`. This repo must be a valid create-next-app example (package.json and Next.js app at **repo root**). |
+| Mode           | What the CLI does                                                                                                                                                                                                                              |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Greenfield** | Runs `npx create-next-app@latest -e https://github.com/adamboon1984-arch/restormel-starter PROJECT_NAME`. This repo must be a valid create-next-app example (package.json and Next.js app at **repo root**).                                   |
 | **Brownfield** | Fetches `https://raw.githubusercontent.com/adamboon1984-arch/restormel-starter/main/.cursorrules` and writes it into the user’s project root. The **canonical** Restormel security/architecture rules live in `.cursorrules` at the repo root. |
 
 Do not nest the Next.js app in a subdirectory; keep the app at the root so `create-next-app -e <this-repo>` works without `--example-path`.
@@ -17,12 +17,12 @@ Do not nest the Next.js app in a subdirectory; keep the app at the root so `crea
 
 Restormel wraps your app in four enforceable layers so insecure patterns are caught before they reach production.
 
-| Layer | Tool | What it does |
-|-------|------|----------------|
-| **1. Code security** | **ESLint + eslint-plugin-security** | Flags dangerous patterns (e.g. `eval`, `dangerouslySetInnerHTML`, non-literal `require`) in the editor and in CI. |
-| **2. Dependency & architecture** | **Dependency Cruiser** | Enforces import rules (e.g. no server-only code in client components) and detects circular dependencies. |
-| **3. Pre-commit guard** | **Husky** | Runs tests (and optionally lint/audit) on every commit so broken or insecure code doesn’t get committed. |
-| **4. AI alignment** | **Cursor Rules (`.cursorrules`)** | Keeps Cursor/AI output aligned with Restormel’s security and architecture rules (Server First, Zod, no leaks). |
+| Layer                            | Tool                                | What it does                                                                                                                           |
+| -------------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Code security**             | **ESLint + eslint-plugin-security** | Flags dangerous patterns (e.g. `eval`, `dangerouslySetInnerHTML`, non-literal `require`) in the editor and in CI.                      |
+| **2. Dependency & architecture** | **Dependency Cruiser**              | Enforces import rules (e.g. no server-only code in client components) and detects circular dependencies.                               |
+| **3. Pre-commit guard**          | **Husky**                           | Runs lint (Prettier + ESLint on staged files) and the security audit on every commit so broken or insecure code doesn’t get committed. |
+| **4. AI alignment**              | **Cursor Rules (`.cursorrules`)**   | Keeps Cursor/AI output aligned with Restormel’s security and architecture rules (Server First, Zod, no leaks).                         |
 
 Together, these give you **lint-time**, **build-time**, **commit-time**, and **AI-assisted** safety.
 
@@ -95,12 +95,12 @@ These patterns are codified in **`.cursorrules`** so both humans and AI stay con
 
 ## Tech Stack
 
-- **Runtime & framework:** Next.js 14 (App Router), React 19, TypeScript  
-- **Validation:** Zod  
-- **Styling:** Tailwind CSS  
+- **Runtime & framework:** Next.js (App Router), React 19, TypeScript
+- **Validation:** Zod
+- **Styling:** Tailwind CSS
 - **Quality & security:** ESLint, eslint-plugin-security, Dependency Cruiser, Husky, Vitest
-- **Dependency security:** Vitest 4+ is used (instead of Jest) to avoid deprecated/vulnerable transitive deps (e.g. `glob@7`, `inflight`) and to satisfy the esbuild/vite dev-server advisory (GHSA-67mh-4wv8-2f99). An `overrides` entry for `glob` ensures any remaining dependents resolve to a secure version.  
-- **Database (example setup):** Postgres (e.g. via Drizzle/Prisma); adapt to your stack  
+- **Dependency security:** Vitest 4+ is used (instead of Jest) to avoid deprecated/vulnerable transitive deps (e.g. `glob@7`, `inflight`) and to satisfy the esbuild/vite dev-server advisory (GHSA-67mh-4wv8-2f99). An `overrides` entry for `glob` ensures any remaining dependents resolve to a secure version.
+- **Database (example setup):** Postgres (e.g. via Drizzle/Prisma); adapt to your stack
 
 ---
 
