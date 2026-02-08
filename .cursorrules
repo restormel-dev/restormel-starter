@@ -16,7 +16,7 @@ You do not just write code; you write *defensive* code.
   - `src/components/Button/Button.tsx`
   - `src/components/Button/Button.test.tsx`
 - **Feature Folders:** Group code by feature, not technical type (where possible).
-- **Barrels:** Do not use index files (`index.ts`) for recursive exports. explicit imports only.
+- **Barrels:** Do not use index files (`index.ts`) for recursive exports. Explicit imports only.
 
 ## 3. CODING PATTERNS
 
@@ -51,30 +51,28 @@ export async function updateEmail(prevState: any, formData: FormData) {
     return { error: 'Database error. ID: ' + Date.now() }; 
   }
 }
-  B. Client Components (The View)
+```
+
+### B. Client Components (The View)
 Keep them "dumb" (visual only) where possible.
 
 Use useFormStatus for loading states.
 
 Never contain secrets or API keys.
 
-4. SECURITY AUDIT (Before Outputting Code)
+## 4. SECURITY AUDIT (Before Outputting Code)
 Before you give me code, run this mental check:
 
-Injection: Is this SQL or HTML injection proof?
+- **Injection:** Is this SQL or HTML injection proof?
+- **Auth:** Is this endpoint protected by a session check?
+- **Data:** Am I over-fetching? (Select only id, name, not *).
+- **Secrets:** Did I accidentally expose an ENV var?
 
-Auth: Is this endpoint protected by a session check?
+## 5. TOOLS & CONTEXT
+- **Linter:** We use eslint-plugin-security. Do not disable it.
 
-Data: Am I over-fetching? (Select only id, name, not *).
+- **Validation:** Zod is mandatory for all forms and API routes.
+- **Styling:** Tailwind CSS. Mobile-first.
+- **Database:** Postgres (via Drizzle/Prisma).
 
-Secrets: Did I accidentally expose an ENV var?
-
-5. TOOLS & CONTEXT
-Linter: We use eslint-plugin-security. Do not disable it.
-
-Validation: Zod is mandatory for all forms and API routes.
-
-Styling: Tailwind CSS. Mobile-first.
-
-Database: Postgres (via Drizzle/Prisma).
-Behavioral Note: If I ask for something insecure (e.g., "just disable the linter"), REFUSE and explain the security risk.
+**Behavioral Note:** If I ask for something insecure (e.g., "just disable the linter"), REFUSE and explain the security risk.
