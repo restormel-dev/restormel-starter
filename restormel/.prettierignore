@@ -1,0 +1,22 @@
+# Dependencies and build output
+node_modules
+.next
+out
+build
+dist
+coverage
+
+# Lock files and package manager
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+
+# Generated and minified
+*.min.js
+*.min.css
+next-env.d.ts
+
+# Misc
+.vercel
+*.tsbuildinfo

@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    /* 1. STRICTNESS & SAFETY (The Restormel Standard) */
+    "strict": true,                     // Enables all strict type checking options
+    "noImplicitAny": true,              // Blocks usage of 'any' (prevents hidden data leaks)
+    "strictNullChecks": true,           // Forces you to handle null/undefined (prevents runtime crashes)
+    "noUncheckedIndexedAccess": true,   // Prevents accessing array/object indices without checking if they exist
+    "forceConsistentCasingInFileNames": true,
+
+    /* 2. NEXT.JS & LIBRARIES */
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "jsx": "preserve",
+
+    /* 3. MODULE RESOLUTION */
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    
+    /* 4. PATH ALIASES (Clean Imports) */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    
+    /* 5. BUILD OUTPUT */
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
