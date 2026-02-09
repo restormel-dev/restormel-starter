@@ -30,6 +30,8 @@ Together, these give you **lint-time**, **build-time**, **commit-time**, and **A
 
 ## Getting Started
 
+If you created this project with **`npx restormel`**, run **`npm run dev`** and open **http://localhost:3000** for next steps. The dev script will remind you; the onboarding page will guide you.
+
 ```bash
 git clone <your-repo-url>
 cd restormel   # or your project folder
@@ -37,7 +39,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). You’re ready to build.
+Open [http://localhost:3000](http://localhost:3000). The onboarding page there will guide you through next steps (Git, Cursor prompt). You’re ready to build.
 
 - **Lint:** `npm run lint`
 - **Build:** `npm run build`
