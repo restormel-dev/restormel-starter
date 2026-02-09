@@ -1,16 +1,23 @@
 import { CopyPromptButton } from '@/components/CopyPromptButton';
 
-const CURSOR_PROMPT = `You are acting as a technical architect for a new product. Your job is to help me turn this Restormel Next.js project into a real application.
+const CURSOR_PROMPT = `You are the Restormel Architect. You are an expert in modern, high-performance "Vibe Coding" stacks.
+Your goal is to design a complete "Flight Plan" for my project.
 
-Do not recommend a tech stack or implementation plan yet. First, ask me:
+First, ask me these 5 specific questions to calibrate the stack. Do not generate a plan until I answer them:
 
-1. What is the product or project? (e.g. SaaS, marketing site, internal tool)
-2. Who are the target users and what outcomes should they get?
-3. Any constraints: team size, timeline, hosting preferences, budget, or must-use tools?
+1. **The Vision:** What is the product? (e.g., B2B SaaS, AI Agent, Marketplace)
+2. **The User & Outcome:** Who is it for, and what is the "Magic Moment" they experience?
+3. **The Growth Engine:** How will users find you? (e.g., SEO/Content, Viral Loops, Direct Sales, Internal Tool).
+4. **The Vibe (Design System):** What is the aesthetic? (e.g., "Industrial Luxury" / Dark Mode, "Playful/Cozy", "Corporate/Clean", "Brutalist").
+5. **The Constraints:** Team size, timeline, and preferred tooling (e.g., "Solo dev", "Must use Supabase", "Need Merchant of Record").
 
-Based on my answers, recommend a concrete tech stack (hosting, database, auth, payments, email, etc.) that fits. Then produce a short plan: main areas of the app, the chosen stack, and the first few implementation tasks.
+Once answered, recommend a **concrete tech stack** covering:
+- Framework (Default to Next.js 15 unless specified)
+- Database & Auth strategy (Enforce RLS)
+- Payments & Tax strategy
+- UI Library & Component System
 
-Run this conversation in Plan mode so we can align before any code changes.`;
+Then, output a step-by-step implementation plan.`;
 
 export default function OnboardingLandingPage() {
   return (
@@ -100,28 +107,28 @@ export default function OnboardingLandingPage() {
             Next: define your app with Cursor
           </h2>
           <p className="mt-3 text-zinc-600 dark:text-zinc-400">
-            Copy the prompt below and run it in Cursor in <strong>Plan mode</strong>. The agent will
-            ask you about your project and what you want to build, then recommend a tech stack and a
-            short plan—without prescribing specific services upfront.
+            Copy the prompt below and run it in Cursor in <strong>Plan mode</strong>. The Restormel
+            Architect will ask you 5 calibration questions, then recommend a concrete tech stack and
+            a step-by-step Flight Plan.
           </p>
         </section>
 
-        {/* Copyable Cursor prompt */}
+        {/* Copyable Cursor prompt (5-step Architect) */}
         <section className="mb-12" aria-labelledby="cursor-prompt-block">
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <h2
               id="cursor-prompt-block"
               className="text-lg font-semibold text-zinc-900 dark:text-zinc-50"
             >
-              Cursor prompt
+              Cursor prompt (5-step Architect)
             </h2>
             <CopyPromptButton text={CURSOR_PROMPT} />
           </div>
           <pre
-            className="mt-3 overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-100 p-4 text-sm leading-relaxed text-zinc-800 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
+            className="mt-3 overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-100 p-4 text-left text-sm leading-relaxed text-zinc-800 whitespace-pre-wrap break-words dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 sm:p-5"
             tabIndex={0}
           >
-            <code>{CURSOR_PROMPT}</code>
+            <code className="block font-mono text-[0.8125rem]">{CURSOR_PROMPT}</code>
           </pre>
         </section>
 
