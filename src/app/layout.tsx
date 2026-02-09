@@ -13,9 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Restormel — Next steps',
-  description:
-    'Your Restormel project is ready. Run npm run dev, then follow the steps to set up Git and define your app with Cursor.',
+  title: 'App',
+  description: 'Next.js App Router application.',
 };
 
 export default function RootLayout({
